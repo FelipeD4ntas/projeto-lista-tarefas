@@ -16,11 +16,7 @@ function verificaCampoTarefa(tarefa) {
 
 };
 
-
-function buscarTarefa(event) {
-    const valorInput = event.target.value.toLowerCase().trim()
-    const tarefas = Array.from(containerTarefas.children);
-
+function procurandoTarefas(tarefas, valorInput) {
     const encontrado = tarefas.filter((tarefa) => {
         return !tarefa.textContent.toLowerCase().includes(valorInput);
     });
@@ -38,6 +34,13 @@ function buscarTarefa(event) {
         naoeEncontrado.classList.remove('hidden');
         naoeEncontrado.classList.add('d-flex')
     });
+}
+
+
+function buscarTarefa(event) {
+    const valorInput = event.target.value.toLowerCase().trim()
+    const tarefas = Array.from(containerTarefas.children);
+    procurandoTarefas(tarefas, valorInput)
 };
 
 function adicionarTarefa(event) {
