@@ -16,26 +16,37 @@ function verificaCampoTarefa(tarefa) {
 
 };
 
+function filtrandoTarefas(tarefas, valorInput, encontrando) {
+    return tarefas.filter((tarefa) => {
+        const bolean = tarefa.textContent.toLowerCase().includes(valorInput)
+        return encontrando ? bolean : !bolean;
+    });
+};
+
 function procurandoTarefas(tarefas, valorInput) {
-    const encontrado = tarefas.filter((tarefa) => {
-        return !tarefa.textContent.toLowerCase().includes(valorInput);
-    });
 
+    const encontrado = filtrandoTarefas(tarefas, valorInput, false);
+
+    const naoEncontrado = filtrandoTarefas(tarefas, valorInput, true);
+
+    mostrarTarefas(encontrado, 'hidden', 'd-flex');
+    ocultarTarefas(naoEncontrado, 'd-flex', 'hidden');
+};
+
+
+function mostrarTarefas(encontrado, add, remove) {
     encontrado.forEach((encontrado) => {
-        encontrado.classList.remove('d-flex');
-        encontrado.classList.add('hidden')
+        encontrado.classList.remove(remove);
+        encontrado.classList.add(add);
     });
+};
 
-    const naoeEncontrado = tarefas.filter((tarefa) => {
-        return tarefa.textContent.toLowerCase().includes(valorInput);
+function ocultarTarefas(naoEncontrado, add, remove) {
+    naoEncontrado.forEach((naoEncontrado) => {
+        naoEncontrado.classList.remove(remove);
+        naoEncontrado.classList.add(add);
     });
-
-    naoeEncontrado.forEach((naoeEncontrado) => {
-        naoeEncontrado.classList.remove('hidden');
-        naoeEncontrado.classList.add('d-flex')
-    });
-}
-
+};
 
 function buscarTarefa(event) {
     const valorInput = event.target.value.toLowerCase().trim()
