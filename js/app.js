@@ -1,18 +1,34 @@
 const formAddTarefa = document.querySelector('.form-add-tarefa');
 const formBuscarTarefa = document.querySelector('.form-search');
 const containerTarefas = document.querySelector('.tarefas-container');
+const banco = [
+    { tarefa: 'Assistir Breaking Bad' },
+    { tarefa: 'Planejar aulas' },
+    { tarefa: 'Fazer exercícios físicos' }
+]
 
 function resetarInput(event) {
     event.target.reset();
 };
 
+function addTarefasContainer(tarefa) {
+    containerTarefas.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center" data-tarefa="${tarefa}">
+      <span>${tarefa}</span>
+      <i class="far fa-trash-alt"  data-lixeira="${tarefa}"></i>
+    </li>`;
+};
+
+function carregarPag() {
+    banco.forEach(({ tarefa }) => addTarefasContainer(tarefa));
+};
+
 function verificaCampoTarefa(tarefa) {
     if (tarefa.length) {
-        containerTarefas.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center" data-tarefa="${tarefa}">
-        <span>${tarefa}</span>
-        <i class="far fa-trash-alt"  data-lixeira="${tarefa}"></i>
-    </li>`;
+        banco.push({ tarefa });
+        addTarefasContainer(tarefa);
+        console.log(banco);
     };
+
 };
 
 function filtrandoTarefas(tarefas, valorInput, encontrando) {
@@ -70,3 +86,4 @@ function apagarTarefa(event) {
 formAddTarefa.addEventListener('submit', adicionarTarefa);
 formBuscarTarefa.addEventListener('input', buscarTarefa);
 containerTarefas.addEventListener('click', apagarTarefa);
+window.addEventListener('load', carregarPag);
