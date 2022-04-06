@@ -1,11 +1,8 @@
 const formAddTarefa = document.querySelector('.form-add-tarefa');
 const formBuscarTarefa = document.querySelector('.form-search');
 const containerTarefas = document.querySelector('.tarefas-container');
-const banco = [
-    { tarefa: 'Assistir Breaking Bad' },
-    { tarefa: 'Planejar aulas' },
-    { tarefa: 'Fazer exercícios físicos' }
-]
+let banco = buscarTarefaBD()
+
 
 function resetarInput(event) {
     event.target.reset();
@@ -18,17 +15,33 @@ function addTarefasContainer(tarefa) {
     </li>`;
 };
 
+function buscarTarefaBD() {
+    const bancoString = localStorage.getItem('banco');
+    const bancoObj = JSON.parse(bancoString);
+    return bancoObj
+}
+
 function carregarPag() {
-    banco.forEach(({ tarefa }) => addTarefasContainer(tarefa));
+    if (banco === null) {
+        banco = []
+    } else {
+        banco.forEach(({ tarefa }) => {
+            addTarefasContainer(tarefa);
+        });
+    };
+};
+
+function adicionaTarefaBD() {
+    localStorage.setItem('banco', JSON.stringify(banco));
 };
 
 function verificaCampoTarefa(tarefa) {
     if (tarefa.length) {
         banco.push({ tarefa });
+        adicionaTarefaBD()
         addTarefasContainer(tarefa);
         console.log(banco);
     };
-
 };
 
 function filtrandoTarefas(tarefas, valorInput, encontrando) {
@@ -79,8 +92,15 @@ function apagarTarefa(event) {
     const elementoClicado = event.target;
     const deletar = elementoClicado.dataset.lixeira;
     const itemLista = document.querySelector(`[data-tarefa="${deletar}"]`);
+    const valorDatasetItemLista = itemLista.dataset.tarefa;
 
-    if (deletar) itemLista.remove();
+    if (deletar) {
+        itemLista.remove();
+        banco = banco.filter((item) => item.tarefa !== valorDatasetItemLista);
+        localStorage.setItem('banco', JSON.stringify(banco));
+    }
+
+
 };
 
 formAddTarefa.addEventListener('submit', adicionarTarefa);
