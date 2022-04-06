@@ -13,26 +13,22 @@ function verificaCampoTarefa(tarefa) {
         <i class="far fa-trash-alt"  data-lixeira="${tarefa}"></i>
     </li>`;
     };
-
 };
 
 function filtrandoTarefas(tarefas, valorInput, encontrando) {
     return tarefas.filter((tarefa) => {
-        const bolean = tarefa.textContent.toLowerCase().includes(valorInput)
-        return encontrando ? bolean : !bolean;
+        const combinou = tarefa.textContent.toLowerCase().includes(valorInput)
+        return encontrando ? combinou : !combinou;
     });
 };
 
 function procurandoTarefas(tarefas, valorInput) {
-
     const encontrado = filtrandoTarefas(tarefas, valorInput, false);
-
     const naoEncontrado = filtrandoTarefas(tarefas, valorInput, true);
 
     mostrarTarefas(encontrado, 'hidden', 'd-flex');
     ocultarTarefas(naoEncontrado, 'd-flex', 'hidden');
 };
-
 
 function mostrarTarefas(encontrado, add, remove) {
     encontrado.forEach((encontrado) => {
@@ -51,7 +47,8 @@ function ocultarTarefas(naoEncontrado, add, remove) {
 function buscarTarefa(event) {
     const valorInput = event.target.value.toLowerCase().trim()
     const tarefas = Array.from(containerTarefas.children);
-    procurandoTarefas(tarefas, valorInput)
+
+    procurandoTarefas(tarefas, valorInput);
 };
 
 function adicionarTarefa(event) {
