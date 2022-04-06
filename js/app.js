@@ -1,7 +1,7 @@
 const formAddTarefa = document.querySelector('.form-add-tarefa');
 const formBuscarTarefa = document.querySelector('.form-search');
 const containerTarefas = document.querySelector('.tarefas-container');
-let banco = buscarTarefaBD()
+let banco = buscarTarefaBD();
 
 
 function resetarInput(event) {
@@ -19,7 +19,7 @@ function buscarTarefaBD() {
     const bancoString = localStorage.getItem('banco');
     const bancoObj = JSON.parse(bancoString);
     return bancoObj
-}
+};
 
 function carregarPag() {
     if (banco === null) {
@@ -98,12 +98,10 @@ function apagarTarefa(event) {
         itemLista.remove();
         banco = banco.filter((item) => item.tarefa !== valorDatasetItemLista);
         adicionaTarefaBD()
-    }
-
-
+    };
 };
 
+window.addEventListener('load', carregarPag);
 formAddTarefa.addEventListener('submit', adicionarTarefa);
 formBuscarTarefa.addEventListener('input', buscarTarefa);
 containerTarefas.addEventListener('click', apagarTarefa);
-window.addEventListener('load', carregarPag);
