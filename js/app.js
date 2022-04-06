@@ -97,7 +97,7 @@ function apagarTarefa(event) {
     if (deletar) {
         itemLista.remove();
         banco = banco.filter((item) => item.tarefa !== valorDatasetItemLista);
-        localStorage.setItem('banco', JSON.stringify(banco));
+        adicionaTarefaBD()
     }
 
 
