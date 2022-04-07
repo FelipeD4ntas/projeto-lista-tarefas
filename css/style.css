@@ -1,45 +1,48 @@
 body {
-  background-image: url('../img/fundo.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  position: relative;
+    background-image: url('../img/fundo.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+#particles-js {
+    width: 100%;
+    height: 100%;
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .container {
     max-width: 400px;
 }
-  
+
 input[type=text],
 input[type=text]:focus {
-  color: #fff;
-  border: none;
-  background: rgba(0,0,0,0.2);
-  background: #2A2E33;
-  max-width: 400px;
-  z-index: 175;
-  position: relative; 
+    color: #fff;
+    border: none;
+    background: rgba(0, 0, 0, 0.2);
+    background: #2A2E33;
+    max-width: 400px;
+    z-index: 175;
+    position: relative;
 }
 
 .tarefas-container li {
-  background: #484E53;
-  text-shadow: 0px 1px 1px black;
-  z-index: 175;
-  position: relative; 
+    background: #484E53;
+    text-shadow: 0px 1px 1px black;
+    z-index: 175;
+    position: relative;
 }
 
 i[data-lixeira] {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .hidden {
-  display: none;
-}
-
-#particles-js {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
+    display: none;
 }
