@@ -9,31 +9,28 @@
     "short_name": "ToList",
     "start_url": "/https://feliped4ntas.github.io/projeto-lista-tarefas/",
     "theme_color": "#000000",
-    "categories": [],
-    "screenshots": [],
     "icons": [{
-            "src": "img/favicon-32x32.png",
+            "src": "images/32x32.png",
             "type": "image/png",
             "sizes": "32x32"
         },
         {
-            "src": "img/favicon-16x16.png",
+            "src": "images/16x16.png",
             "type": "image/png",
             "sizes": "16x16"
         },
         {
-            "src": "img/favicon.png",
+            "src": "images/100x100.png",
             "type": "image/png",
             "sizes": "100x100"
         },
         {
-            "src": "img/apple-touch-icon.png",
+            "src": "images/76x76.png",
             "type": "image/png",
             "sizes": "76x76"
         },
         {
             "src": "img/safari-pinned-tab.svg"
         }
-    ],
-    "shortcuts": []
+    ]
 }
