@@ -17,10 +17,8 @@
     <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
     <link rel="manifest" href="manifest.json" />
     <title>Lista de Tarefas</title>
-    <script type="module">
-        import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate'; const el = document.createElement('pwa-update'); document.body.appendChild(el);
-    </script>
-
+    <script type="module" src="sw.js"></script>
+    <script type="module" src="sw-register.js"></script>
 </head>
 
 <body class="bg-dark">
@@ -45,8 +43,6 @@
     <script type="text/javascript" src="js/particles.js"></script>
     <script type="text/javascript" src="js/tema.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
-    <script type="module" src="sw.js"></script>
-    <script type="module" src="sw-register.js"></script>
 </body>
 
 </html>
