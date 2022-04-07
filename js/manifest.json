@@ -1,12 +1,39 @@
 {
-    "name": "Lista de Tarefas",
-    "short_name": "LT",
+    "background_color": "none",
+    "description": "Organize suas tarefas com estilo e simplicidade",
+    "dir": "ltr",
+    "display": "standalone",
+    "name": "To do List",
+    "orientation": "any",
+    "scope": "/https://feliped4ntas.github.io/projeto-lista-tarefas/",
+    "short_name": "ToList",
+    "start_url": "/https://feliped4ntas.github.io/projeto-lista-tarefas/",
+    "theme_color": "#000000",
+    "categories": [],
+    "screenshots": [],
     "icons": [{
-        "src": "/img/android-chrome-96x96.png",
-        "sizes": "96x96",
-        "type": "image/png"
-    }],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+            "src": "img/favicon-32x32.png",
+            "type": "image/png",
+            "sizes": "32x32"
+        },
+        {
+            "src": "img/favicon-16x16.png",
+            "type": "image/png",
+            "sizes": "16x16"
+        },
+        {
+            "src": "img/favicon.png",
+            "type": "image/png",
+            "sizes": "100x100"
+        },
+        {
+            "src": "img/apple-touch-icon.png",
+            "type": "image/png",
+            "sizes": "76x76"
+        },
+        {
+            "src": "img/safari-pinned-tab.svg"
+        }
+    ],
+    "shortcuts": []
 }
