@@ -52,24 +52,24 @@ function filtrandoTarefas(tarefas, valorInput, encontrando) {
 };
 
 function procurandoTarefas(tarefas, valorInput) {
-    const encontrado = filtrandoTarefas(tarefas, valorInput, false);
-    const naoEncontrado = filtrandoTarefas(tarefas, valorInput, true);
+    const tarefaNaoEncontrada = filtrandoTarefas(tarefas, valorInput, false);
+    const tarefaEncontrada = filtrandoTarefas(tarefas, valorInput, true);
 
-    mostrarTarefas(encontrado, 'hidden', 'd-flex');
-    ocultarTarefas(naoEncontrado, 'd-flex', 'hidden');
+    mostrarTarefas(tarefaNaoEncontrada, 'hidden', 'd-flex');
+    ocultarTarefas(tarefaEncontrada, 'd-flex', 'hidden');
 };
 
-function mostrarTarefas(encontrado, add, remove) {
-    encontrado.forEach((encontrado) => {
-        encontrado.classList.remove(remove);
-        encontrado.classList.add(add);
+function mostrarTarefas(tarefaNaoEncontrada, add, remove) {
+    tarefaNaoEncontrada.forEach((tarefaNaoEncontrada) => {
+        tarefaNaoEncontrada.classList.remove(remove);
+        tarefaNaoEncontrada.classList.add(add);
     });
 };
 
-function ocultarTarefas(naoEncontrado, add, remove) {
-    naoEncontrado.forEach((naoEncontrado) => {
-        naoEncontrado.classList.remove(remove);
-        naoEncontrado.classList.add(add);
+function ocultarTarefas(tarefaEncontrada, add, remove) {
+    tarefaEncontrada.forEach((tarefaEncontrada) => {
+        tarefaEncontrada.classList.remove(remove);
+        tarefaEncontrada.classList.add(add);
     });
 };
 
