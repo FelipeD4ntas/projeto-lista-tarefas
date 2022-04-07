@@ -5,7 +5,6 @@ self.addEventListener('install', e => {
         caches.open('my-pwa-cache').then(cache => {
             // adicione todas as URLs de recursos que queremos armazenar em cache
             return cache.addAll([
-                '/',
                 '/index.html',
                 '/img/fundo.jpg',
                 '/css/style.css',
