@@ -105,3 +105,14 @@ window.addEventListener('load', carregarPag);
 formAddTarefa.addEventListener('submit', adicionarTarefa);
 formBuscarTarefa.addEventListener('input', buscarTarefa);
 containerTarefas.addEventListener('click', apagarTarefa);
+
+function registerServiceWorker() {
+    // registrando o service worker para navegadores com suporte
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js', { scope: '/Lista de Tarefas' }).then(() => {
+            console.log('Service Worker registrado com sucesso.');
+        }).catch(error => {
+            console.log('Service Worker falhou:', error);
+        });
+    }
+}
